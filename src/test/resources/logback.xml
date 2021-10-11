@@ -1,0 +1,20 @@
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[%thread] %-5level - %msg%n%replace(%rootException{full
+                , sun.reflect
+                , java.lang
+                , java.util
+                , org.gradle
+                , com.sun
+                , org.junit}){'\\n', '~~'}%nopexception</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="logback1582" level="debug" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <root level="error">
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>
